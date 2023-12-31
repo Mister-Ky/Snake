@@ -1,7 +1,7 @@
 #pragma once
 
-#ifndef SANSATION
-#define SANSATION
+#ifndef SANSATION_HPP
+#define SANSATION_HPP
 
 #include <Windows.h>
 
