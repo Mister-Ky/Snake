@@ -11,7 +11,7 @@
 #include <sansation.hpp>
 #include <SFML/Graphics.hpp>
 
-//const static std::string theAuthorOfTheProgram = "Mister KygecHik3524, his discord is - \"mister_ky\"";
+//My discord - mister_ky
 //I am not the author of the idea of the game, I just wrote the code that allows you to play the game
 
 enum Direction { UP, DOWN, LEFT, RIGHT };
