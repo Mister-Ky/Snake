@@ -11,7 +11,7 @@
 #include <sansation.hpp>
 #include <SFML/Graphics.hpp>
 
-//My discord - mister_ky
+//My discord - mister_ky (and kygechik)
 //I am not the author of the idea of the game, I just wrote the code that allows you to play the game
 
 enum Direction { UP, DOWN, LEFT, RIGHT };
