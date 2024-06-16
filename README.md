@@ -50,7 +50,9 @@ the repository also has extlibs.rar archive, it contains the sfml version that w
 
 (it depends on how you compile the program, but the above says about Snake.exe from a repository that has already been built)
 
-## instead of Snake.exe (he is in version 1.0 and not in 1.1 which is in github, look at commits up to version 1.1) you can also write just snake
+Snake.exe , he is in version 1.0 and not in 1.1 which is in github, look at commits up to version 1.1
+
+## instead of Snake.exe you can also write just snake
 ## the application and the window have an icon
 
 the above may be making a mistake somewhere
