@@ -50,7 +50,7 @@ the repository also has extlibs.rar archive, it contains the sfml version that w
 
 (it depends on how you compile the program, but the above says about Snake.exe from a repository that has already been built)
 
-Snake.exe , he is in version 1.0 and not in 1.1 which is here in the repository
+Snake.exe he is in version 1.0 and code (main.cpp) in 1.1
 
 ## instead of Snake.exe you can also write just snake
 ## the application and the window have an icon
