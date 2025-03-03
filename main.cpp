@@ -43,7 +43,7 @@ public:
         bool isolation;
         bool revival;
 
-        GameSettings() : SIZES(25), COLS(30), ROWS(30), framerateWindow(10), VSync(false), multiPlayer(false), isolation(false), revival(true) {}
+        GameSettings() : SIZES(25), COLS(30), ROWS(30), framerateWindow(10), VSync(false), isolation(false), revival(true) {}
     };
 private:
     bool gameOver = false;
@@ -277,7 +277,7 @@ void createFileCmd()
     std::ofstream fileCmd = std::ofstream("modificationSnake.cmd");
     fileCmd << "@echo off\n";
     fileCmd << "start \"\" Snake.exe ";
-    fileCmd << "-size 25 -cols 30 -rows 30 -framerate 10 -vsync false -multiplayer false -isolation false -revival true\n";
+    fileCmd << "-size 25 -cols 30 -rows 30 -framerate 10 -vsync false -isolation false -revival true\n";
     fileCmd << "::  size 10 - 25\n";
     fileCmd << "::  cols 15 - 30\n";
     fileCmd << "::  rows 15 - 30\n";
