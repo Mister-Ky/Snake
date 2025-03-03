@@ -40,7 +40,6 @@ public:
         byte ROWS;
         byte framerateWindow;
         bool VSync;
-        bool multiPlayer;
         bool isolation;
         bool revival;
 
@@ -284,7 +283,6 @@ void createFileCmd()
     fileCmd << "::  rows 15 - 30\n";
     fileCmd << "::  framerate 8 - 20\n";
     fileCmd << "::  vsync false - true\n";
-    fileCmd << "::  multiplayer false - true\n";
     fileCmd << "::  isolation false - true\n";
     fileCmd << "::  revival false - true\n";
     fileCmd << "exit\n";
@@ -328,12 +326,6 @@ bool handleVSync(std::string& arg, Game::GameSettings& settings) {
     }
     return true;
 }
-bool handleMultiPlayer(std::string& arg, Game::GameSettings& settings) {
-    if (!setBoolFromArg(arg, settings.multiPlayer)) {
-        return false;
-    }
-    return true;
-}
 bool handleIsolation(std::string& arg, Game::GameSettings& settings) {
     if (!setBoolFromArg(arg, settings.isolation)) {
         return false;
@@ -357,7 +349,6 @@ int main(int argc, char* argv[])
     handlers["-rows"] = handleRows;
     handlers["-framerate"] = handleFramerateWindow;
     handlers["-vsync"] = handleVSync;
-    handlers["-multiPlayer"] = handleMultiPlayer;
     handlers["-isolation"] = handleIsolation;
     handlers["-revival"] = handleRevival;
 
