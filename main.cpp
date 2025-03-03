@@ -7,13 +7,9 @@
 
 #include <deque>
 #include <fstream>
-#include <icon.hpp>
-#include <sansation.hpp>
+#include "icon.hpp"
+#include "sansation.hpp"
 #include <SFML/Graphics.hpp>
-#include <SFML/Network.hpp>
-
-//My discord - mister_ky (and kygechik)
-//I am not the author of the idea of the game, I just wrote the code that allows you to play the game
 
 struct GameObject {
     byte x;
@@ -32,30 +28,6 @@ enum Direction { UP, DOWN, LEFT, RIGHT };
 typedef GameObject SnakeSegment;
 typedef GameObject Apple;
 typedef std::deque<SnakeSegment> SnakeContainer;
-
-inline sf::Packet& operator <<(sf::Packet& packet, const GameObject& object) {
-    return packet << object.x << object.y;
-}
-inline sf::Packet& operator >>(sf::Packet& packet, GameObject& object) {
-    return packet >> object.x >> object.y;
-}
-inline sf::Packet& operator <<(sf::Packet& packet, const std::deque<GameObject>& container) {
-    sf::Uint32 size = container.size();
-    packet << size;
-    for (const auto& segment : container) {
-        packet << segment;
-    }
-    return packet;
-}
-inline sf::Packet& operator >>(sf::Packet& packet, std::deque<GameObject>& container) {
-    sf::Uint32 size;
-    packet >> size;
-    container.resize(size);
-    for (auto& segment : container) {
-        packet >> segment;
-    }
-    return packet;
-}
 
 class Game 
 {
@@ -280,7 +252,7 @@ public:
         window.display();
     }
 
-    byte single()
+    byte start()
     {
         sf::RenderWindow window(sf::VideoMode(settings.COLS * settings.SIZES, settings.ROWS * settings.SIZES), titleWindow, sf::Style::Close);
         sf::RectangleShape gameObject(sf::Vector2f(settings.SIZES, settings.SIZES));
@@ -296,36 +268,6 @@ public:
             processEvents(window, &apple, &snake);
             updateGame(snake, apple);
             renderGame(window, text, gameObject, snake, apple);
-        }
-        return EXIT_SUCCESS;
-    }
-
-    byte multi()
-    {
-        //multi not working, in to beta
-        unsigned short port = 3524;
-        sf::TcpListener listener;
-        sf::TcpSocket client;
-        sf::Packet packet;
-        SnakeContainer snake;
-
-        if (listener.listen(port) != sf::Socket::Done) {
-            return EXIT_FAILURE;
-        }
-        if (listener.accept(client) != sf::Socket::Done) {
-            return EXIT_FAILURE;
-        }
-
-        client.setBlocking(false);
-
-        while (true) {
-            packet.clear();
-            if (client.receive(packet) == sf::Socket::Done) {
-                packet >> snake;
-            }
-            packet.clear();
-            packet << snake;
-            client.send(packet);
         }
         return EXIT_SUCCESS;
     }
@@ -460,9 +402,7 @@ int main(int argc, char* argv[])
 
     srand(static_cast<unsigned>(time(nullptr)));
 
-    if (!game.settings.multiPlayer) return game.single(); else return game.multi();
-
-    return EXIT_FAILURE;
+    return game.start();
 }
 
 #endif
