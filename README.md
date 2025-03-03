@@ -15,7 +15,6 @@ the repository also has extlibs.rar archive, it contains the sfml version that w
 * -rows (number of cells y)
 * -framerate (number of frames per second, preferably 10, so that it is not fast)
 * -vsync (vertical synchronization)
-* -multiplayer (multiplayer game version)
 * -isolation (if true, the snake does not die from hitting the door)
 * -revival (When you press the R key after death, you will be resurrected with progress reset)
 
@@ -26,12 +25,11 @@ the repository also has extlibs.rar archive, it contains the sfml version that w
 * rows 15 - 30
 * framerate 8 - 20
 * vsync false - true
-* multiplayer false - true
 * isolation false - true
 * revival false - true
 
 ### usage example:
-* Snake.exe -size 25 -cols 30 -rows 30 -framerate 10 -vsync false -multiplayer false -isolation false -revival true
+* Snake.exe -size 25 -cols 30 -rows 30 -framerate 10 -vsync false -isolation false -revival true
 * the above command has the initial values of the game, that is, it specifies the parameters that the game uses basic
 
 ### when using -modification, the program will create a special file and close
@@ -50,7 +48,7 @@ the repository also has extlibs.rar archive, it contains the sfml version that w
 
 (it depends on how you compile the program, but the above says about Snake.exe from a repository that has already been built)
 
-Snake.exe he is in version 1.0 and code (main.cpp) in 1.1
+Snake.exe he is in version 1.1
 
 ## instead of Snake.exe you can also write just snake
 ## the application and the window have an icon
